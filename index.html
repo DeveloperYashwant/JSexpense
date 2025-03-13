@@ -155,6 +155,23 @@
             monthFilter.appendChild(option);
         });
     }
+
+    document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    alert("Right-click is disabled!");
+});
+
+document.addEventListener("keydown", (e) => {
+    if (
+        e.ctrlKey && (e.key === "u" || e.key === "U") ||  // Disable Ctrl + U
+        e.ctrlKey && e.shiftKey && e.key === "I" ||       // Disable Ctrl + Shift + I
+        e.key === "F12"                                   // Disable F12
+    ) {
+        e.preventDefault();
+        alert("Access denied! Shortcut keys are disabled.");
+    }
+});
+
 </script>
 </body>
 </html>
